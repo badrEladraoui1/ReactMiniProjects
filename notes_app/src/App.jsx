@@ -1,17 +1,26 @@
 import { useEffect, useState } from "react";
 import FormNote from "./FormNote";
 import ListOfNote from "./ListOfNote";
+//trying
+import ListOfSavedNotes from "./ListOfSavedNotes";
 
 const App = () => {
   const [notes, setNotes] = useState(() => {
     const localValue = localStorage.getItem("NOTES");
-    if (localValue == null) return [];
+    if (localValue === null) return [];
+    return JSON.parse(localValue);
+  });
+
+  const [savedNotes, setSavedNotes] = useState(() => {
+    const localValue = localStorage.getItem("SAVED_NOTES");
+    if (localValue === null) return [];
     return JSON.parse(localValue);
   });
 
   useEffect(() => {
     localStorage.setItem("NOTES", JSON.stringify(notes));
-  }, [notes]);
+    localStorage.setItem("SAVED_NOTES", JSON.stringify(savedNotes));
+  }, [notes ,savedNotes]);
 
   const addNewNoteToNotes = (newNote) => {
     setNotes((prevNotes) => {
@@ -61,6 +70,35 @@ const App = () => {
     });
   };
 
+  const selectAllNotes = () => {
+    setNotes((prevNotes) => {
+      return prevNotes.map((prevNote) => {
+        if (prevNote.isDone === false) {
+          return { ...prevNote, isDone: true };
+        } else {
+          return { ...prevNote };
+        }
+      });
+    });
+  };
+
+  const saveAllDoneNotes = () => {
+    const filteredNotes = notes.filter((prevNote) => prevNote.isDone === true);
+    const updatesSavedNotes = [...savedNotes, ...filteredNotes];
+    setSavedNotes(updatesSavedNotes);
+    // localStorage.setItem("SAVED_NOTES", JSON.stringify(updatesSavedNotes));
+
+    // const uniqueFilterNotes = filteredNotes.filter(
+    //   (prevFilteredNote) =>
+    //     !savedNotes.some(
+    //       (prevSavedNote) => prevSavedNote.id === prevFilteredNote.id
+    //     )
+    // );
+    // setSavedNotes([...savedNotes, uniqueFilterNotes]);
+
+    // setSavedNotes([...savedNotes, filteredNotes]);
+  };
+
   return (
     <div>
       <h1>NOTES TAKING APP</h1>
@@ -71,7 +109,16 @@ const App = () => {
         onDeleteItem={deleteItem}
         onDeleteAll={deleteAll}
         onResetAllNotes={resetAllNotes}
+        onSelectAllNotes={selectAllNotes}
+        saveAllDoneNotes={saveAllDoneNotes}
       />
+      {
+        <ListOfSavedNotes
+          notes={notes}
+          savedNotes={savedNotes}
+          saveAllDoneNotes={saveAllDoneNotes}
+        />
+      }
     </div>
   );
 };
