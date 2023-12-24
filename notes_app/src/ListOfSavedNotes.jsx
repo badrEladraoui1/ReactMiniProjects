@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import SavedItem from "./SavedItem";
 
-const ListOfSavedNotes = ({ savedNotes, notes, saveAllDoneNotes }) => {
+const ListOfSavedNotes = ({ savedNotes, notes, saveAllDoneNotes , onDeleteAllSavedNotes }) => {
   return (
     <>
       <ul>
@@ -10,8 +10,11 @@ const ListOfSavedNotes = ({ savedNotes, notes, saveAllDoneNotes }) => {
           <SavedItem key={savedNote.id} savedNote={savedNote} />
         ))}
       </ul>
-      {notes.length > 1 && (
-        <button onClick={saveAllDoneNotes}>Save All</button>
+      {(notes.length > 1 || savedNotes.length >= 1) && (
+        <>
+        <button onClick={saveAllDoneNotes}>Save All Done notes</button>
+        <button onClick={onDeleteAllSavedNotes}>Delete All</button>
+        </>
       )}
     </>
   );

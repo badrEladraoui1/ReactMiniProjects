@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import FormNote from "./FormNote";
 import ListOfNote from "./ListOfNote";
-//trying
 import ListOfSavedNotes from "./ListOfSavedNotes";
+
+import styles from "./App.module.css"
+
+
 
 const App = () => {
   const [notes, setNotes] = useState(() => {
@@ -20,7 +23,7 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("NOTES", JSON.stringify(notes));
     localStorage.setItem("SAVED_NOTES", JSON.stringify(savedNotes));
-  }, [notes ,savedNotes]);
+  }, [notes, savedNotes]);
 
   const addNewNoteToNotes = (newNote) => {
     setNotes((prevNotes) => {
@@ -84,25 +87,24 @@ const App = () => {
 
   const saveAllDoneNotes = () => {
     const filteredNotes = notes.filter((prevNote) => prevNote.isDone === true);
-    const updatesSavedNotes = [...savedNotes, ...filteredNotes];
+    const uniqueFilterNotes = filteredNotes.filter(
+      (prevFilteredNote) =>
+        !savedNotes.some(
+          (prevSavedNote) => prevSavedNote.note === prevFilteredNote.note
+        )
+    );
+    const updatesSavedNotes = [...savedNotes, ...uniqueFilterNotes];
     setSavedNotes(updatesSavedNotes);
-    // localStorage.setItem("SAVED_NOTES", JSON.stringify(updatesSavedNotes));
+  };
 
-    // const uniqueFilterNotes = filteredNotes.filter(
-    //   (prevFilteredNote) =>
-    //     !savedNotes.some(
-    //       (prevSavedNote) => prevSavedNote.id === prevFilteredNote.id
-    //     )
-    // );
-    // setSavedNotes([...savedNotes, uniqueFilterNotes]);
-
-    // setSavedNotes([...savedNotes, filteredNotes]);
+  const deleteAllSavedNotes = () => {
+    setSavedNotes([]);
   };
 
   return (
-    <div>
+    <div className={styles.bigContainer}>
       <h1>NOTES TAKING APP</h1>
-      <FormNote onAddNewNoteToNotes={addNewNoteToNotes} />
+      <FormNote className onAddNewNoteToNotes={addNewNoteToNotes} />
       <ListOfNote
         notes={notes}
         onToggleNote={toggleNote}
@@ -117,6 +119,7 @@ const App = () => {
           notes={notes}
           savedNotes={savedNotes}
           saveAllDoneNotes={saveAllDoneNotes}
+          onDeleteAllSavedNotes={deleteAllSavedNotes}
         />
       }
     </div>

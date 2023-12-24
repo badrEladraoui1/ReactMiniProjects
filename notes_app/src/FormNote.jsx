@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import styles from "./FormNote.module.css"
 
 const FormNote = ({ onAddNewNoteToNotes }) => {
   const [newNote, setNewNote] = useState("");
@@ -12,7 +13,7 @@ const FormNote = ({ onAddNewNoteToNotes }) => {
   };
 
   return (
-    <form onSubmit={handleSumbit}>
+    <form className={styles.form} onSubmit={handleSumbit}>
       <label htmlFor="note"> your note : </label>
       <input
         value={newNote}
