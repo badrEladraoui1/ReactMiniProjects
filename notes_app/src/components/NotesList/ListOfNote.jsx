@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import NoteItem from "./NoteItem";
 
-import styles from "./ListOfNote.module.css"
+import styles from "../../styles/NotesList/ListOfNote.module.css"
 // eslint-disable-next-line react/prop-types
 const ListOfNote = ({
   notes,
@@ -10,6 +10,7 @@ const ListOfNote = ({
   onDeleteAll,
   onResetAllNotes,
   onSelectAllNotes,
+  onSaveAllDoneNotes
 }) => {
   return (
     <>
@@ -21,6 +22,7 @@ const ListOfNote = ({
             noteTitle={note.note}
             noteId={note.id}
             noteState={note.isDone}
+
             onToggleNote={onToggleNote}
             onDeleteItem={onDeleteItem}
             onSelectAllNotes={onSelectAllNotes}
@@ -32,6 +34,7 @@ const ListOfNote = ({
           <button onClick={onDeleteAll}>Delete All</button>
           <button onClick={onResetAllNotes}>Reset All</button>
           <button onClick={onSelectAllNotes}>Select All</button>
+          <button onClick={onSaveAllDoneNotes}>Save All Done notes</button>
         </div>
       )}
     </>

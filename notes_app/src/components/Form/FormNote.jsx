@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import styles from "./FormNote.module.css"
+import styles from "../../styles/Form/FormNote.module.css"
 
 const FormNote = ({ onAddNewNoteToNotes }) => {
   const [newNote, setNewNote] = useState("");

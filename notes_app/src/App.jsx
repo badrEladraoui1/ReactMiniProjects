@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import FormNote from "./FormNote";
-import ListOfNote from "./ListOfNote";
-import ListOfSavedNotes from "./ListOfSavedNotes";
+import FormNote from "./components/Form/FormNote";
+import ListOfNote from "./components/NotesList/ListOfNote";
+import ListOfSavedNotes from "./components/SavedNotes/ListOfSavedNotes";
 
-import styles from "./App.module.css"
-
-
+import styles from "./App.module.css";
 
 const App = () => {
   const [notes, setNotes] = useState(() => {
@@ -104,7 +102,7 @@ const App = () => {
   return (
     <div className={styles.bigContainer}>
       <h1>NOTES TAKING APP</h1>
-      <FormNote className onAddNewNoteToNotes={addNewNoteToNotes} />
+      <FormNote onAddNewNoteToNotes={addNewNoteToNotes} />
       <ListOfNote
         notes={notes}
         onToggleNote={toggleNote}
@@ -112,16 +110,14 @@ const App = () => {
         onDeleteAll={deleteAll}
         onResetAllNotes={resetAllNotes}
         onSelectAllNotes={selectAllNotes}
-        saveAllDoneNotes={saveAllDoneNotes}
+        onSaveAllDoneNotes={saveAllDoneNotes}
       />
-      {
-        <ListOfSavedNotes
-          notes={notes}
-          savedNotes={savedNotes}
-          saveAllDoneNotes={saveAllDoneNotes}
-          onDeleteAllSavedNotes={deleteAllSavedNotes}
-        />
-      }
+
+      <ListOfSavedNotes
+        notes={notes}
+        savedNotes={savedNotes}
+        onDeleteAllSavedNotes={deleteAllSavedNotes}
+      />
     </div>
   );
 };

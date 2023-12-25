@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
-function SavedItem({savedNote}) {
+function SavedItem({filteredItem}) {
   return (
     <div>
-      <li>{savedNote.note}</li>
+      <li>{filteredItem.note}</li>
     </div>
   )
 }
