@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+
 import FormNote from "./components/Form/FormNote";
 import ListOfNote from "./components/NotesList/ListOfNote";
 import ListOfSavedNotes from "./components/SavedNotes/ListOfSavedNotes";
+import Nav from "./components/Nav/Nav";
 
 import styles from "./App.module.css";
 
@@ -100,24 +102,30 @@ const App = () => {
   };
 
   return (
-    <div className={styles.bigContainer}>
-      <h1>NOTES TAKING APP</h1>
-      <FormNote onAddNewNoteToNotes={addNewNoteToNotes} />
-      <ListOfNote
-        notes={notes}
-        onToggleNote={toggleNote}
-        onDeleteItem={deleteItem}
-        onDeleteAll={deleteAll}
-        onResetAllNotes={resetAllNotes}
-        onSelectAllNotes={selectAllNotes}
-        onSaveAllDoneNotes={saveAllDoneNotes}
-      />
+    <div className={styles.biggestContainer}>
+      <Nav/>
+      <div className={styles.bigContainer}>
+        <div className={styles.Containers}>
+          <FormNote onAddNewNoteToNotes={addNewNoteToNotes} />
+          <ListOfNote
+            notes={notes}
+            onToggleNote={toggleNote}
+            onDeleteItem={deleteItem}
+            onDeleteAll={deleteAll}
+            onResetAllNotes={resetAllNotes}
+            onSelectAllNotes={selectAllNotes}
+            onSaveAllDoneNotes={saveAllDoneNotes}
+          />
+        </div>
 
-      <ListOfSavedNotes
-        notes={notes}
-        savedNotes={savedNotes}
-        onDeleteAllSavedNotes={deleteAllSavedNotes}
-      />
+        <div className={styles.Containers}>
+          <ListOfSavedNotes
+            notes={notes}
+            savedNotes={savedNotes}
+            onDeleteAllSavedNotes={deleteAllSavedNotes}
+          />
+        </div>
+      </div>
     </div>
   );
 };

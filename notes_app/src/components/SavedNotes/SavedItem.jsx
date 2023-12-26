@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 
-function SavedItem({filteredItem}) {
+import styles from "../../styles/SavedNotes/SavedItem.module.css";
+
+function SavedItem({ filteredItem }) {
   return (
     <div>
-      <li>{filteredItem.note}</li>
+      <li className={styles.savedLi}>
+        <h3>{filteredItem.note}</h3>
+        <hr/>
+      </li>
     </div>
-  )
+  );
 }
 
-export default SavedItem
+export default SavedItem;

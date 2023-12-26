@@ -2,6 +2,8 @@
 import NoteItem from "./NoteItem";
 
 import styles from "../../styles/NotesList/ListOfNote.module.css"
+
+
 // eslint-disable-next-line react/prop-types
 const ListOfNote = ({
   notes,
@@ -30,11 +32,11 @@ const ListOfNote = ({
         ))}
       </ul>
       {notes.length > 1 && (
-        <div>
-          <button onClick={onDeleteAll}>Delete All</button>
-          <button onClick={onResetAllNotes}>Reset All</button>
-          <button onClick={onSelectAllNotes}>Select All</button>
-          <button onClick={onSaveAllDoneNotes}>Save All Done notes</button>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={onDeleteAll}>Delete All</button>
+          <button className={styles.button} onClick={onResetAllNotes}>Reset All</button>
+          <button className={styles.button} onClick={onSelectAllNotes}>Select All</button>
+          <button className={styles.button} onClick={onSaveAllDoneNotes}>Save All Done notes</button>
         </div>
       )}
     </>

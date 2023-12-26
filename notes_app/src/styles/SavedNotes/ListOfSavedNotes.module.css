@@ -1,6 +1,42 @@
 .savedNotes{
     display: flex;
     flex-direction: column;
+    gap: 2rem;
+}
+
+.search{
+    display: flex;
+    gap: 1rem;
+}
+
+.search input{
+    padding: 0.5rem;
+    border-radius: 10vh;
+    border: none;
+}
+
+.ol{
+    display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
+    flex-direction: column;
+    border: 2px solid white ;
+    padding: 2rem;
+    border-radius: 5vh;
 }
+
+.button {
+    padding: 0.7rem;
+    background-color: #fff;
+    border: 5px solid #222d3d;
+    border-radius: 100vh;
+    color: black;
+    font-weight: 900;
+}
+
+.button:hover{
+    background-color: #cccccc;
+}
+
+

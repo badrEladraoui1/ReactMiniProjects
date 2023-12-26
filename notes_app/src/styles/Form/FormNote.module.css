@@ -1,7 +1,26 @@
-.form{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 1rem;
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
 
+.form input {
+  padding: 0.5rem;
+  border-radius: 10vh;
+  border: none;
+}
+
+.button {
+  padding: 0.7rem;
+  background-color: #fff;
+  border: 5px solid #222d3d;
+  border-radius: 100vh;
+  color: black;
+  font-weight: 900;
+}
+
+.button:hover {
+  background-color: #cccccc;
 }

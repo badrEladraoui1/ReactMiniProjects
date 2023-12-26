@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import styles from "../../styles/Form/FormNote.module.css"
+
+import Button from "../Buttons/Button";
+
+import styles from "../../styles/Form/FormNote.module.css";
 
 const FormNote = ({ onAddNewNoteToNotes }) => {
   const [newNote, setNewNote] = useState("");
@@ -14,14 +17,16 @@ const FormNote = ({ onAddNewNoteToNotes }) => {
 
   return (
     <form className={styles.form} onSubmit={handleSumbit}>
-      <label htmlFor="note"> your note : </label>
+      <h2 htmlFor="note"> your note : </h2>
       <input
         value={newNote}
         onChange={(e) => setNewNote(e.target.value)}
         id="note"
         type="text"
       />
-      <button type="submit">Add Note</button>
+      <Button className={styles.button} type="submit">
+        Add Note
+      </Button>
     </form>
   );
 };
