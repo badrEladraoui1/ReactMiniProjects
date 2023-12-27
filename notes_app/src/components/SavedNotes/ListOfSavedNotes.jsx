@@ -34,8 +34,10 @@ const ListOfSavedNotes = ({ savedNotes, notes, onDeleteAllSavedNotes }) => {
           filteredItems.map((filteredItem) => (
             <SavedItem key={filteredItem.id} filteredItem={filteredItem} />
           ))
+        ) : query.length > 0 ? (
+          <h2>No results found!</h2>
         ) : (
-          <h2>save your notes !!!</h2>
+          <h2>Save your notes!!!</h2>
         )}
       </ol>
       {((notes.length > 1 && savedNotes.length >= 1) ||
