@@ -30,9 +30,13 @@ const ListOfSavedNotes = ({ savedNotes, notes, onDeleteAllSavedNotes }) => {
       )}
 
       <ol className={styles.ol}>
-        {filteredItems.length >= 1 ? filteredItems.map((filteredItem) => (
-          <SavedItem key={filteredItem.id} filteredItem={filteredItem} />
-        )) : <h2>save your notes !!!</h2>}
+        {filteredItems.length >= 1 ? (
+          filteredItems.map((filteredItem) => (
+            <SavedItem key={filteredItem.id} filteredItem={filteredItem} />
+          ))
+        ) : (
+          <h2>save your notes !!!</h2>
+        )}
       </ol>
       {((notes.length > 1 && savedNotes.length >= 1) ||
         savedNotes.length > 1) && (

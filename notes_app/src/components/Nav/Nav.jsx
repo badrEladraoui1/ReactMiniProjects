@@ -9,10 +9,19 @@ const Nav = () => {
         alignItems: "center",
         height: "100%",
         marginBottom: "3rem",
-        marginTop: "1rem"
+        marginTop: "2rem",
+        // Remove border and padding from the nav element
       }}
     >
-      <h1>NOTE TAKING APP</h1>
+      <h1
+        style={{
+          border: "3px solid white",
+          padding: "1rem",
+          borderRadius: "5vh"
+        }}
+      >
+        NOTE TAKING APP
+      </h1>
     </nav>
   );
 };
