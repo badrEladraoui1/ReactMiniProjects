@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import styles from "../../styles/NotesList/NoteItem.module.css"; 
+import styles from "../../styles/NotesList/NoteItem.module.css";
 
 const NoteItem = ({
   noteTitle,
@@ -8,6 +8,8 @@ const NoteItem = ({
   noteState,
   onToggleNote,
   onDeleteItem,
+  onSaveAllDoneNotes,
+  notes
 }) => {
   return (
     <li className={styles.li}>
@@ -19,7 +21,12 @@ const NoteItem = ({
         }}
       />
       <h3>{noteTitle}</h3>
-      <button className={styles.button} onClick={() => onDeleteItem(noteId)}>Delete !!!</button>
+      <button className={styles.button} onClick={() => onDeleteItem(noteId)}>
+        Delete
+      </button>
+      
+      {notes.length === 1 && <button className={styles.button} onClick={onSaveAllDoneNotes}>Save</button>}
+      
     </li>
   );
 };
