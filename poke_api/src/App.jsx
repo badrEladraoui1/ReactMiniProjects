@@ -15,24 +15,30 @@ const App = () => {
   const [nextPage, setNextPage] = useState("");
   const [prevPage, setPrevPage] = useState("");
 
-  const abortController = new AbortController();
-  const signal = abortController.signal;
-
   useEffect(() => {
     setIsLoading(true);
     const fetchPokemons = async () => {
       try {
-        const fetching = await fetch(currentPage, { signal });
-        const response = await fetching.json();
-        const results = response.results;
+        const fetching = await fetch(currentPage);
+        const data = await fetching.json();
 
-        const next = response.next;
+        const next = data.next;
         setNextPage(next);
 
-        const previous = response.previous;
+        const previous = data.previous;
         setPrevPage(previous);
 
-        setPokemons(results);
+        const pokemonPromises = data.results.map(async (pokemon) => {
+          const data = await fetch(
+            `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+          );
+          return data.json();
+        });
+        console.log("🚀 ~ file: App.jsx:37 ~ pokemonPromises ~ pokemonPromises:", pokemonPromises)
+
+        const fetchedPokemons = await Promise.all(pokemonPromises);
+        console.log("🚀 ~ file: App.jsx:40 ~ fetchPokemons ~ fetchedPokemons:", fetchedPokemons)
+        setPokemons(fetchedPokemons);
       } catch (error) {
         setError(error);
       } finally {
@@ -41,8 +47,6 @@ const App = () => {
     };
     fetchPokemons();
   }, [currentPage]);
-
-  // console.log(pokemons);
 
   const next = () => {
     setCurrentPage(nextPage);
@@ -58,7 +62,7 @@ const App = () => {
     <div>
       <h1>Fetching the Pokemon API : </h1>
       <button onClick={previous}>Previous Pokemons !!!</button>
-      <span>.....;).....</span>
+      <span>..........</span>
       <button onClick={next}>Next Pokemons !!!</button>
       {isLoading ? <h2>Loading...</h2> : <PokemonList pokemons={pokemons} />}
     </div>
