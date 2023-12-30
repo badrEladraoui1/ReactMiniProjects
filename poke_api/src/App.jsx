@@ -2,11 +2,16 @@
 import { useEffect, useState } from "react";
 
 import PokemonList from "./pokemonList";
+import SearchingForm from "./SearchingForm";
 
-// const BaseUrl = ;
+// const BaseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
 const App = () => {
+  // const [pokeSearch, setPokeSearch] = useState("");
+  // const [pokemonResult, sePokemonResult] = useState([]);
+
   const [pokemons, setPokemons] = useState([]);
+
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const [currentPage, setCurrentPage] = useState(
@@ -34,10 +39,7 @@ const App = () => {
           );
           return data.json();
         });
-        console.log("🚀 ~ file: App.jsx:37 ~ pokemonPromises ~ pokemonPromises:", pokemonPromises)
-
         const fetchedPokemons = await Promise.all(pokemonPromises);
-        console.log("🚀 ~ file: App.jsx:40 ~ fetchPokemons ~ fetchedPokemons:", fetchedPokemons)
         setPokemons(fetchedPokemons);
       } catch (error) {
         setError(error);
@@ -56,15 +58,30 @@ const App = () => {
     setCurrentPage(prevPage);
   };
 
-  error ? <div>Something went wrong !!!</div> : null;
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const fetching = async () => {
+  //     const fetching = await fetch(`${BaseUrl}${pokeSearch}`);
+  //     const data = await fetching.json();
+  //     sePokemonResult(data);
+  //   };
+  //   fetching(pokeSearch);
+  // };
+
+  // if (error) return <div>Something went wrong !!!</div>;
 
   return (
-    <div>
+    <div className="mainContainer">
       <h1>Fetching the Pokemon API : </h1>
-      <button onClick={previous}>Previous Pokemons !!!</button>
-      <span>..........</span>
-      <button onClick={next}>Next Pokemons !!!</button>
-      {isLoading ? <h2>Loading...</h2> : <PokemonList pokemons={pokemons} />}
+      <div>
+        {" "}
+        <button onClick={previous}>Previous Pokemons !!!</button>
+        <span>..........</span>
+        <button onClick={next}>Next Pokemons !!!</button>
+      </div>
+      <SearchingForm />
+      {/* {error ? <div>Something went wrong !!!</div> : null} */}
+      {isLoading ? <h2>Loading...</h2> : <PokemonList pokemons={pokemons} />}) :
     </div>
   );
 };
