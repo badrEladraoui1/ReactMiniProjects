@@ -3,7 +3,7 @@ import Pokemon from "./Pokemon";
 
 const PokemonList = ({ pokemons }) => {
   return (
-    <div>
+    <div className="pokeList">
       {pokemons.map((pokemon) => {
         return (
           <Pokemon

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import PokemonList from "./pokemonList";
 import SearchingForm from "./SearchingForm";
+import Loading from "./Loading";
 
 // const BaseUrl = "https://pokeapi.co/api/v2/pokemon/";
 
@@ -15,7 +16,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState();
   const [currentPage, setCurrentPage] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=5"
+    "https://pokeapi.co/api/v2/pokemon?limit=9"
   );
   const [nextPage, setNextPage] = useState("");
   const [prevPage, setPrevPage] = useState("");
@@ -58,30 +59,18 @@ const App = () => {
     setCurrentPage(prevPage);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const fetching = async () => {
-  //     const fetching = await fetch(`${BaseUrl}${pokeSearch}`);
-  //     const data = await fetching.json();
-  //     sePokemonResult(data);
-  //   };
-  //   fetching(pokeSearch);
-  // };
-
-  // if (error) return <div>Something went wrong !!!</div>;
-
   return (
     <div className="mainContainer">
-      <h1>Fetching the Pokemon API : </h1>
-      <div>
-        {" "}
-        <button onClick={previous}>Previous Pokemons !!!</button>
-        <span>..........</span>
-        <button onClick={next}>Next Pokemons !!!</button>
+      <h1 className="fetchingText">Fetching the PokéAPI </h1>
+      <div className="buttonsAndForm">
+        <SearchingForm />
+        <div className="buttons">
+          <button onClick={previous}>Previous Pokemons !!!</button>
+          <button onClick={next}>Next Pokemons !!!</button>
+        </div>
       </div>
-      <SearchingForm />
       {/* {error ? <div>Something went wrong !!!</div> : null} */}
-      {isLoading ? <h2>Loading...</h2> : <PokemonList pokemons={pokemons} />}) :
+      {isLoading ? <Loading /> : <PokemonList pokemons={pokemons} />}
     </div>
   );
 };
