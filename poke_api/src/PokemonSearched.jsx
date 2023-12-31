@@ -11,13 +11,13 @@ const PokemonSearched = ({ pokemonResult, pokeSearch}) => {
     <div>
       {pokemonAvailable ? (
         <div className="pokemonItem">
-          <h2>Name: {pokemonResult.name}</h2>
+          <h2>{pokemonResult.name}</h2>
           <img
             src={pokemonResult.sprites?.other?.dream_world?.front_default}
             alt="Pokemon-image"
           />
-          <h2>Weight: {pokemonResult.weight}</h2>
-          <h2>Height: {pokemonResult.height}</h2>
+          <h2>Weight {pokemonResult.weight}</h2>
+          <h2>Height {pokemonResult.height}</h2>
         </div>
       ) : (
         <p>no pokemon found.</p>

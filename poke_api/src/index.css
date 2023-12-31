@@ -67,6 +67,13 @@ button:focus-visible {
   }
 }
 
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .loading {
   display: flex;
   justify-content: center;
@@ -78,6 +85,61 @@ button:focus-visible {
   place-content: center;
   grid-template-columns: auto auto auto;
   grid-template-rows: 1fr 1fr;
+}
+
+@media (max-width: 2032px) {
+  .pokeList {
+    grid-template-columns: auto auto;
+  }
+}
+
+@media (max-width: 1790px) {
+  .pokeList {
+    grid-template-columns: auto;
+  }
+}
+@media (max-width: 827px) {
+  .pokeList {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .abovePart {
+    /* margin-left: 4.5rem; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .pokemonItem img {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 490px) {
+  .pokeList {
+    grid-template-columns: auto;
+  }
+  .pokemonItem {
+    justify-content: start;
+    align-items: start;
+    padding: 0;
+  }
+  .pokemonItem img {
+    max-width: 50%;
+  }
+  .mainContainer {
+    justify-content: start;
+    align-items: start;
+  }
+  .inputAndButton {
+    flex-direction: column;
+  }
+  .buttons {
+    flex-direction: column;
+  }
 }
 
 .buttonsAndForm {
@@ -121,8 +183,9 @@ form {
 
 .inputAndButton {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
-  
 }
 
 .inputAndButton input {

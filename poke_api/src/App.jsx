@@ -5,16 +5,10 @@ import PokemonList from "./pokemonList";
 import SearchingForm from "./SearchingForm";
 import Loading from "./Loading";
 
-// const BaseUrl = "https://pokeapi.co/api/v2/pokemon/";
-
 const App = () => {
-  // const [pokeSearch, setPokeSearch] = useState("");
-  // const [pokemonResult, sePokemonResult] = useState([]);
-
   const [pokemons, setPokemons] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState();
   const [currentPage, setCurrentPage] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=9"
   );
@@ -43,7 +37,7 @@ const App = () => {
         const fetchedPokemons = await Promise.all(pokemonPromises);
         setPokemons(fetchedPokemons);
       } catch (error) {
-        setError(error);
+        console.log(error);
       } finally {
         setIsLoading(false);
       }
@@ -61,15 +55,16 @@ const App = () => {
 
   return (
     <div className="mainContainer">
-      <h1 className="fetchingText">Fetching the PokéAPI </h1>
-      <div className="buttonsAndForm">
-        <SearchingForm />
-        <div className="buttons">
-          <button onClick={previous}>Previous Pokemons !!!</button>
-          <button onClick={next}>Next Pokemons !!!</button>
+      <div className="abovePart">
+        <h1 className="fetchingText">Fetching the PokéAPI </h1>
+        <div className="buttonsAndForm">
+          <SearchingForm />
+          <div className="buttons">
+            <button onClick={previous}>Previous Pokemons !!!</button>
+            <button onClick={next}>Next Pokemons !!!</button>
+          </div>
         </div>
       </div>
-      {/* {error ? <div>Something went wrong !!!</div> : null} */}
       {isLoading ? <Loading /> : <PokemonList pokemons={pokemons} />}
     </div>
   );
