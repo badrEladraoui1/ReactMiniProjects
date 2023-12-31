@@ -10,7 +10,7 @@ const App = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(
-    "https://pokeapi.co/api/v2/pokemon?limit=10"
+    "https://pokeapi.co/api/v2/pokemon?limit=9"
   );
   const [nextPage, setNextPage] = useState("");
   const [prevPage, setPrevPage] = useState("");
