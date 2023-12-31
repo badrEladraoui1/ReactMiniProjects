@@ -9,6 +9,6 @@ Currently, two official plugins are available:
 # ReactMiniProjects
 
 # NOTE TAKING APP
+https://note-taking-app-badr-eladr.netlify.app/
 
-# Screen Shots of the mini project :
 
