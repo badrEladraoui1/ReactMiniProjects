@@ -1,24 +1,28 @@
-
 .bigContainer {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1008px) {
+  .bigContainer {
+    flex-direction: column;
+  }
 }
 
 .bigContainer h1 {
-    text-align: center;
+  text-align: center;
 }
 
-.Containers{
-    margin-top: 2rem;
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 1rem;
-    border: white;
+.Containers {
+  margin-top: 2rem;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  border: white;
 }
-
