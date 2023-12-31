@@ -1,0 +1,20 @@
+.nbrOfQuestions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+}
+
+.nbrOfQuestionTexts{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}

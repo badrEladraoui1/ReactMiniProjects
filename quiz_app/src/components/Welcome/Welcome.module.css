@@ -1,0 +1,29 @@
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.welcomeTexts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.welcomeText {
+  font-size: 3.2rem;
+}
+
+.interestedText {
+  font-size: 2rem;
+}
+
+.topics {
+  display: grid;
+  grid-template-columns: auto auto;
+  place-content: center;
+  gap: 1rem;
+}
