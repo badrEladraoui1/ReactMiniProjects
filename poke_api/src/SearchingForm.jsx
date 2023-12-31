@@ -17,7 +17,7 @@ const SearchingForm = () => {
     setIsLoading(true);
     const fetching = async () => {
       try {
-        const fetching = await fetch(`${BaseUrl}${pokeSearch}`);
+        const fetching = await fetch(`${BaseUrl}${pokeSearch.toLowerCase()}`);
         const data = await fetching.json();
         sePokemonResult(data);
       } catch (error) {
