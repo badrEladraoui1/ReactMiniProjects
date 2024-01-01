@@ -8,10 +8,10 @@ const Welcome = ({ onGetCategory }) => {
   const TOPICS = {
     Linux: "Linux",
     DevOps: "DevOps",
+    Docker: "Docker",
     Networking: "Networking",
     Cloud: "Cloud",
-    Docker: "Docker",
-    Kubernetes: "Kubernetes",
+    SQL: "SQL",
   };
 
   return (
@@ -25,20 +25,20 @@ const Welcome = ({ onGetCategory }) => {
           <Button onClick={() => onGetCategory(TOPICS.Linux)}>
             {TOPICS.Linux}
           </Button>
+          <Button onClick={() => onGetCategory(TOPICS.Cloud)}>
+            {TOPICS.Cloud}
+          </Button>
           <Button onClick={() => onGetCategory(TOPICS.DevOps)}>
             {TOPICS.DevOps}
           </Button>
           <Button onClick={() => onGetCategory(TOPICS.Networking)}>
             {TOPICS.Networking}
           </Button>
-          <Button onClick={() => onGetCategory(TOPICS.Cloud)}>
-            {TOPICS.Cloud}
-          </Button>
           <Button onClick={() => onGetCategory(TOPICS.Docker)}>
             {TOPICS.Docker}
           </Button>
-          <Button onClick={() => onGetCategory(TOPICS.Kubernetes)}>
-            {TOPICS.Kubernetes}
+          <Button onClick={() => onGetCategory(TOPICS.SQL)}>
+            {TOPICS.SQL}
           </Button>
         </div>
       </Link>

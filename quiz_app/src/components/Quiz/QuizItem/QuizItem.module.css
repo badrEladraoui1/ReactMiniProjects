@@ -1,0 +1,16 @@
+.quizItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.questAnswers {
+  border: 2px solid white;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

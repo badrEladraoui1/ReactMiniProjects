@@ -11,9 +11,9 @@ const SUGGESTIONS = {
 };
 
 const DIFFICULTIES = {
-  easy: "easy",
-  medium: "medium",
-  hard: "hard",
+  easy: "Easy",
+  medium: "Medium",
+  hard: "Hard",
 };
 
 // console.log("suggestion", SUGGESTIONS["suggestion1"]);
@@ -29,7 +29,7 @@ const Difficulty = ({ onGetDifficulty }) => {
   };
 
   const randomSuggestion = getRandomSuggestion();
-  console.log("randomSuggestion : ", randomSuggestion);
+  // console.log("randomSuggestion : ", randomSuggestion);
 
   return (
     <div className={`${styles.difficulty} reuMargin`}>

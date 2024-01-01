@@ -6,15 +6,13 @@ import styles from "./NbrOfQuestions.module.css";
 import Button from "../Button/Button";
 
 const QUESTIONS = {
-  questions10: "10",
-  questions15: "15",
-  questions20: "20",
+  questions5: 5,
+  questions10: 10,
 };
 
 const SUGGESTIONS = {
-  suggestion1: "I think you should go with 10",
-  suggestion2: "I think you should go with 15",
-  suggestion3: "I think you should go with 20",
+  suggestion1: "I think you should go with 5",
+  suggestion2: "I think you should go with 10",
 };
 
 const NbrOfQuestions = ({ onGetNbrOfQuestions }) => {
@@ -36,14 +34,11 @@ const NbrOfQuestions = ({ onGetNbrOfQuestions }) => {
       </div>
       <Link to="/quiz" className="link">
         <div className={styles.questionButtons}>
+          <Button onClick={() => onGetNbrOfQuestions(QUESTIONS.questions5)}>
+            {QUESTIONS.questions5}
+          </Button>
           <Button onClick={() => onGetNbrOfQuestions(QUESTIONS.questions10)}>
             {QUESTIONS.questions10}
-          </Button>
-          <Button onClick={() => onGetNbrOfQuestions(QUESTIONS.questions15)}>
-            {QUESTIONS.questions15}
-          </Button>
-          <Button onClick={() => onGetNbrOfQuestions(QUESTIONS.questions20)}>
-            {QUESTIONS.questions20}
           </Button>
         </div>
       </Link>
