@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
 import Ratings from "./Ratings";
 import Submit from "./Submit";
+import svg from "../assets/images/icon-star.svg";
 
 const Card = ({ onHandleRating, onHandleSubmit }) => {
   return (
     <div className="card">
-      <img style={{ width: "30px" }} src="../assets/images/icon-star.svg" />
+      <img className="icon" src={svg} />
       <div className="text">
         <h3>How did we do ?</h3>
-        <p>
+        <p className="para">
           Please let us know how we did with your support request. All feedback
           is appreciated to help us improve our offering!
         </p>

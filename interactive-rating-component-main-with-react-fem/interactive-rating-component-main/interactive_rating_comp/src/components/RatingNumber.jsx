@@ -1,24 +1,16 @@
-import { useState } from "react";
-
 /* eslint-disable react/prop-types */
-const RatingNumber = ({ value, onHandleRating }) => {
-  const [isActive, setIsActive] = useState(false);
-  
-
-  const both = () => {
+const RatingNumber = ({ value, onHandleRating, isActive }) => {
+  const handleClick = () => {
     onHandleRating(value);
-    setIsActive(!isActive);
   };
 
   return (
     <div className="ratingValueDiv">
       <button
-        onClick={both}
-        className={
-          isActive
-            ? "ratingValue addingOrangeToBg"
-            : "ratingValue removingOrange"
-        }
+        onClick={handleClick}
+        className={`ratingValue ${
+          isActive ? "addingOrangeToBg" : "removingOrange"
+        }`}
       >
         {value}
       </button>

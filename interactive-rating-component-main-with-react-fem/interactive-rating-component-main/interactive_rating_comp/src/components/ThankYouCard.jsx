@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
+import svg from "../assets/images/illustration-thank-you.svg";
+
 const ThankYouCard = ({ buttonVal }) => {
   return (
     <div className="card">
-      <div>
-        <img src="../assets/images/illustration-thank-you.svg"></img>
-        <h4>You selected {buttonVal} out of 5</h4>
+      <div className="final">
+        <img src={svg}></img>
+        <h4 className="finalScore">You selected {buttonVal} out of 5</h4>
       </div>
       <div>
         <h3>Thank You!</h3>

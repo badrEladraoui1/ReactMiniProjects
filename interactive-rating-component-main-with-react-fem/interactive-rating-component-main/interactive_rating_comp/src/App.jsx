@@ -18,7 +18,9 @@ const App = () => {
 
   return (
     <div>
-      {!isSubmitted && <Card onHandleRating={handleRating} onHandleSubmit={handleSubmit} />}
+      {!isSubmitted && (
+        <Card onHandleRating={handleRating} onHandleSubmit={handleSubmit} />
+      )}
       {isSubmitted && <ThankYouCard buttonVal={buttonVal} />}
     </div>
   );
