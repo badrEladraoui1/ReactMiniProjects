@@ -1,31 +1,13 @@
 import "./App.css";
 
-const NOTIFS = [
-  {
-
-  },
-  {
-
-  },
-  {
-
-  },
-  {
-
-  },
-  {
-
-  },
-  {
-
-  },
-  {
-
-  },
-];
+import Notifications from "./components/Notifications";
 
 const App = () => {
-  return <div></div>;
+  return (
+    <div className="container">
+      <Notifications />
+    </div>
+  );
 };
 
 export default App;
