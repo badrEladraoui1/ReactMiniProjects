@@ -1,3 +1,14 @@
+:root {
+  --White: hsl(0, 0%, 100%);
+  --VeryLightGrayishBlue: hsl(210, 60%, 98%);
+  --LightGrayishBlue1: hsl(211, 68%, 94%);
+  --LightGrayishBlue2: hsl(205, 33%, 90%);
+  --GrayishBlue: hsl(219, 14%, 63%);
+  --DarkGrayishBlue: hsl(219, 12%, 42%);
+  --VeryDarkblue: hsl(224, 21%, 14%);
+  --darkBlue: hsl(221, 66%, 25%);
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -27,6 +38,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  background-color: var(--LightGrayishBlue2);
 }
 /*
   5. Improve media defaults
@@ -68,3 +80,135 @@ h6 {
   isolation: isolate;
 }
 
+.flexNotifs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.howManyNotifs {
+  background-color: var(--darkBlue);
+  color: var(--White);
+  padding: 0px 5px;
+  border-radius: 1vh;
+  width: 30px;
+}
+
+.MarkAllAsRead {
+  color: var(--GrayishBlue);
+  font-weight: 600;
+}
+
+.bigContainer {
+  background-color: var(--White);
+  border-radius: 5vh;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  max-width: 57rem;
+  padding: 2rem;
+}
+
+.notificationText {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notifications {
+  margin-top: 2rem;
+  /* border: 2px solid purple; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.notificationItem {
+  /* border: 2px solid yellow; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 2vh;
+}
+
+.blueBg {
+  background-color: var(--LightGrayishBlue1);
+}
+
+.importantInfos {
+  display: flex;
+  gap: 1rem;
+}
+
+.image {
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+}
+
+.action {
+  color: var(--GrayishBlue);
+}
+
+.privateMessage {
+  margin-top: 7px;
+  border: 1px solid rgba(150, 150, 150, 0.425);
+  border-radius: 1vh;
+}
+
+.imageHelper {
+  justify-self: end;
+}
+
+.mainInfos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  /* gap: 5px; */
+}
+
+.specificInfos {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.groupText {
+  font-weight: 700;
+  color: var(--darkBlue);
+}
+
+.PostText {
+  font-weight: 700;
+  color: var(--DarkGrayishBlue);
+}
+
+.redDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+.notRead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.blueAndPointer:hover {
+  color: var(--darkBlue);
+  cursor: pointer;
+}
+
+.pOnHover:hover {
+  cursor: pointer;
+  background-color: var(--LightGrayishBlue1);
+  /* border: transparent; */
+}
