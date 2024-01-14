@@ -106,7 +106,7 @@ h6 {
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
-  max-width: 57rem;
+  max-width: 58rem;
   padding: 2rem;
 }
 
@@ -138,8 +138,18 @@ h6 {
   background-color: var(--LightGrayishBlue1);
 }
 
+.witheBg {
+  background-color: var(--White);
+}
+
+.annoyingDivs{
+  display: flex;
+  gap: 20px;
+}
+
 .importantInfos {
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -155,8 +165,10 @@ h6 {
 
 .privateMessage {
   margin-top: 7px;
-  border: 1px solid rgba(150, 150, 150, 0.425);
+  border: 1px solid rgba(150, 150, 150, 0.158);
   border-radius: 1vh;
+  padding: 15px;
+  text-align:start;
 }
 
 .imageHelper {
@@ -165,10 +177,17 @@ h6 {
 
 .mainInfos {
   display: flex;
+  text-align: justify;
   flex-direction: column;
   justify-content: center;
   align-items: start;
+  flex-wrap: wrap;
+  /* padding: 1rem; */
   /* gap: 5px; */
+}
+
+.reason{
+  text-align: justify;
 }
 
 .specificInfos {
@@ -195,6 +214,10 @@ h6 {
   background-color: red;
 }
 
+.noRedDot{
+  background-color: var(--White);
+}
+
 .notRead {
   display: flex;
   justify-content: center;
@@ -210,5 +233,5 @@ h6 {
 .pOnHover:hover {
   cursor: pointer;
   background-color: var(--LightGrayishBlue1);
-  /* border: transparent; */
+  border: 1px solid rgba(150, 150, 150, 0);
 }

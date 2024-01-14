@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import ItemNotif from "./ItemNotif";
 
 import image_1 from "../assets/images/avatar-mark-webber.webp";
@@ -8,6 +10,7 @@ import image_5 from "../assets/images/avatar-kimberly-smith.webp";
 import image_sec from "../assets/images/image-chess.webp";
 import image_6 from "../assets/images/avatar-nathan-peterson.webp";
 import image_7 from "../assets/images/avatar-anna-kim.webp";
+import { useEffect } from "react";
 
 const NOTIFS = [
   {
@@ -96,13 +99,32 @@ const NOTIFS = [
   },
 ];
 
-console.log(NOTIFS[0].id);
+const Notifications = ({ onMarkAsRead, notifications, onGetNotifs }) => {
+  // useEffect(() => {
+  //   const totalUnRead = () => {
+  //     const reducing = NOTIFS.reduce((acc, item) => {
+  //       if (!item.read) {
+  //         return acc + 1;
+  //       } else {
+  //         return acc;
+  //       }
+  //     }, 0);
+  //     return reducing;
+  //   };
+  //   onGetNotifs(totalUnRead());
+  // }, [onGetNotifs]);
 
-const Notifications = () => {
   return (
     <div className="notifications">
       {NOTIFS.map((notif) => (
-        <ItemNotif key={notif.id} notif={notif} />
+        <ItemNotif
+          key={notif.id}
+          notif={notif}
+          onMarkAsRead={onMarkAsRead}
+          notifications={notifications}
+          onGetNotifs={onGetNotifs}
+          // markAllAsRead={onMarkAllAsRead}
+        />
       ))}
     </div>
   );
