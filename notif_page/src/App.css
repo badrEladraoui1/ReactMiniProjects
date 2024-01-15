@@ -103,7 +103,6 @@ h6 {
 .bigContainer {
   background-color: var(--White);
   border-radius: 5vh;
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   max-width: 58rem;
@@ -116,9 +115,14 @@ h6 {
   justify-content: space-between;
 }
 
+@media (max-width: 520px) {
+  .notificationText {
+    flex-direction: column;
+  }
+}
+
 .notifications {
   margin-top: 2rem;
-  /* border: 2px solid purple; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -126,7 +130,6 @@ h6 {
 }
 
 .notificationItem {
-  /* border: 2px solid yellow; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -142,7 +145,7 @@ h6 {
   background-color: var(--White);
 }
 
-.annoyingDivs{
+.annoyingDivs {
   display: flex;
   gap: 20px;
 }
@@ -155,8 +158,8 @@ h6 {
 
 .image {
   cursor: pointer;
-  width: 3rem;
-  height: 3rem;
+  max-width: 3rem;
+  max-height: 3rem;
 }
 
 .action {
@@ -168,7 +171,7 @@ h6 {
   border: 1px solid rgba(150, 150, 150, 0.158);
   border-radius: 1vh;
   padding: 15px;
-  text-align:start;
+  text-align: start;
 }
 
 .imageHelper {
@@ -182,11 +185,9 @@ h6 {
   justify-content: center;
   align-items: start;
   flex-wrap: wrap;
-  /* padding: 1rem; */
-  /* gap: 5px; */
 }
 
-.reason{
+.reason {
   text-align: justify;
 }
 
@@ -195,12 +196,23 @@ h6 {
   gap: 5px;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 989px) {
+  .specificInfos {
+    justify-content: start;
+  }
 }
 
 .groupText {
   font-weight: 700;
   color: var(--darkBlue);
+  text-align: start;
 }
+/* @media (max-width: 678px) {
+
+} */
 
 .PostText {
   font-weight: 700;
@@ -214,7 +226,7 @@ h6 {
   background-color: red;
 }
 
-.noRedDot{
+.noRedDot {
   background-color: var(--White);
 }
 

@@ -13,7 +13,7 @@ const ItemNotif = ({ notif, onMarkAsRead, notifications }) => {
 
   return (
     <div
-      onClick={!isRead && markAsReadAndChangeColor}
+      onClick={!isRead ? markAsReadAndChangeColor : () => {}}
       className={`notificationItem  ${isRead ? "witheBg" : "blueBg"}${
         notifications === 0 ? "whiteBg" : ""
       }`}
