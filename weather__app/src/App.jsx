@@ -21,10 +21,14 @@ function App() {
     const fetchData = async () => {
       try {
         const response = await fetch(`${BASE_URL}${city}`);
+        if (!response.ok) {
+          console.log(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         console.log(data);
         setCurrentWeather(data.list[0].weather[0].main);
       } catch (e) {
+        console.log(e);
         setError(e);
       } finally {
         setIsLoading(false);
@@ -36,8 +40,11 @@ function App() {
 
   console.log(currentWeather);
 
+  if (error) return <h1>Something went wrong</h1>;
+
   return (
     <div>
+      {isLoading && <h1>Loading</h1>}
       <SearchForm onGetCity={getCity} />
       <CityInfo currentWeather={currentWeather} />
     </div>
